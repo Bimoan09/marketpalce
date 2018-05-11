@@ -1,9 +1,9 @@
 <template>
     <div>
         <button data-open="checkoutDetailModal">
-            <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
+            <i class="fa fa-shopping-cart fa-2x" aria-hidden="True">
             </i>
-            CART
+            Keranjang
             <span class="alert badge">
                                {{ cartcount }}
                             </span>
@@ -13,17 +13,15 @@
 </template>
 
 <script>
-    export default {
-        props:['cartcount'],
+export default {
+  props: ["cartcount"],
 
-        data(){
-            return {
-            }
-        },
+  data() {
+    return {};
+  },
 
-        created() {
-            console.log('Component mounted.')
-        },
-
-    }
+  created() {
+    console.log("Component mounted.");
+  }
+};
 </script>

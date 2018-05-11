@@ -11,7 +11,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>qty</th>
-                <th></th>
+                <th>size</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -62,7 +62,7 @@
             </tbody>
         </table>
 
-        <a href="{{route('front.shipping-info')}}" class="button">Checkout</a>
+        <a href="{{url('shipping-info')}}" class="button">Checkout</a>
     </div>
 
 

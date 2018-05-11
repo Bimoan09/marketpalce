@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
-        @yield('title','Mickey Shirts')
+        @yield('title','TokoKita')
     </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css
 ">
@@ -38,7 +38,7 @@
             <ol class="menu">
                 <li>
                     <a href="{{route('shirts')}}">
-                        SHIRTS
+                        Koleksi
                     </a>
                 </li>
                 <li>
@@ -46,8 +46,9 @@
                         Dashborad
                     </a>
                 </li>
+            
                 <li>
-                    <cart-count  :cartcount="totalItems" > </cart-count>
+                    <cart-count  :cartcount="totalItems"  > </cart-count>
                 </li>
             </ol>
         </div>
@@ -62,7 +63,7 @@
             <cart-detail :cart="cart" :carttotal="cartTotal" :totalitems="totalItems"></cart-detail>
 
             <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
+                <span aria-hidden="false">&times;</span>
             </button>
         </div>
     </div>

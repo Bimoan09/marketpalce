@@ -20,7 +20,7 @@
         <div class="small-6 columns">
             <div class="item-wrapper">
                 <h3 class="subheader">
-                    <span class="price-tag">${{$product->price}}</span> Mc-Mykey Designed Shirt
+                    <span class="price-tag">Rp.{{$product->price}}</span> TokoKita.com
                 </h3>
                 <div class="row">
                     <div class="large-12 columns">
@@ -47,12 +47,12 @@
 
                             </select>
                         </label>
-                        <a href="#" class="button  expanded">Add to Cart</a>
+                        <a href="{{url('/cart')}}">
+            <button class="button large">Add to cart</button>
+        </a>
                     </div>
                 </div>
-                <p class="text-left subheader">
-                    <small>* Designed by <a href="https://www.youtube.com/webdevmatics">Webdevmatics</a></small>
-                </p>
+
 
             </div>
 

@@ -6,10 +6,10 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Qty</th>
-                    <th>size</th>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Ukuran</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,27 +43,23 @@
                 </tbody>
             </table>
 
-            <button class="button">Checkout</button>
+          <a href="/shipping-info" class="btn btn-info" role="button">Checkout</a>
 
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-        props:['cart','carttotal','totalitems'],
+export default {
+  props: ["cart", "carttotal", "totalitems"],
 
-        methods:{
-            removeFromCart(item){
-                bus.$emit('remove-from-cart',item);
-
-            },
-            addToCart(item){
-                bus.$emit('added-to-cart',item);
-
-            }
-
-
-        }
+  methods: {
+    removeFromCart(item) {
+      bus.$emit("remove-from-cart", item);
+    },
+    addToCart(item) {
+      bus.$emit("added-to-cart", item);
     }
+  }
+};
 </script>

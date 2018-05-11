@@ -2,14 +2,13 @@
 
 @section('title','Shirts')
 @section('content')
-    <!-- products listing -->
-    <!-- Latest SHirts -->
+ 
     
         @forelse($shirts as $shirt)
         <div class="small-3 medium-3 large-3 columns">
-
+            
                 <product :shirt="{{$shirt}}"
-                         shirtlink="{{route('shirt',$shirt->id)}}"
+                         shirtlink="{{route('cart.addItem',$shirt->id)}}"
                          shirtimagepath='{{asset("images/$shirt->image")}}'
                 >
                 </product>
