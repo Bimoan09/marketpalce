@@ -50,11 +50,11 @@
                 <br>
 
                 @if(auth()->check())
-                <a href="#" class="button" data-open="product-review-modal">Write a review</a>
+                <a href="#" class="button" data-open="product-review-modal">tulis review</a>
 
                @include('admin.product.partials.review_form')
                 @else
-                    <a href="/login" class="button" >Write a review</a>
+                    <a href="/login" class="button" >tulis review</a>
 
                 @endif
             </div>
