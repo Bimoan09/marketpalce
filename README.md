@@ -36,3 +36,18 @@ Run watcher
 
 `npm run watch`
 
+on your file **.env** this is mail setting ,,
+
+* MAIL_DRIVER=smtp
+* MAIL_HOST=smtp.gmail.com
+* MAIL_PORT=587
+* MAIL_USERNAME={your email username}
+* MAIL_PASSWORD={your email password}
+* MAIL_ENCRYPTION=tls
+
+
+open your **app/config/mail.php** , change seeting like this
+
+* 'driver' => env('MAIL_DRIVER', 'smtp'),
+* 'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+* 'port' => env('MAIL_PORT', 587),
