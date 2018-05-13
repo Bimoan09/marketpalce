@@ -9,31 +9,31 @@
             {!! Form::open(['route' => 'product.store', 'method' => 'POST', 'files' => true, 'data-parsley-validate'=>'']) !!}
 
             <div class="form-group">
-                {{ Form::label('name', 'Name') }}
+                {{ Form::label('name', 'Nama Produk') }}
                 {{ Form::text('name', null, array('class' => 'form-control','required'=>'','minlength'=>'5')) }}
             </div>
 
             <div class="form-group">
-                {{ Form::label('description', 'Description') }}
+                {{ Form::label('description', 'Deskripsi') }}
                 {{ Form::text('description', null, array('class' => 'form-control')) }}
             </div>
             <div class="form-group">
-                {{ Form::label('price', 'Price') }}
+                {{ Form::label('price', 'Harga') }}
                 {{ Form::number('price', null, array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
-                {{ Form::label('size', 'Size') }}
+                {{ Form::label('size', 'Ukuran') }}
                 {{ Form::select('size', [ 'small' => 'Small', 'medium' => 'Medium','large'=>'Large'], null, ['class' => 'form-control']) }}
             </div>
 
             <div class="form-group">
-                {{ Form::label('category_id', 'Categories') }}
+                {{ Form::label('category_id', 'Kategory') }}
                 {{ Form::select('category_id', $categories, null, ['class' => 'form-control','placeholder'=>'Select Category']) }}
             </div>
 
             <div class="form-group">
-                {{ Form::label('image', 'Image') }}
+                {{ Form::label('image', 'Gambar') }}
                 {{ Form::file('image',array('class' => 'form-control')) }}
             </div>
 

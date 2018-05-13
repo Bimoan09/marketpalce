@@ -1,7 +1,7 @@
 <template>
     <div>
         <form @submit.prevent="postReview">
-            <legend>Rate our product</legend>
+            <legend>Nilai product kami</legend>
 
             <div class="form-group">
                 <label for="">Rate It</label>
@@ -15,7 +15,7 @@
             </div>
 
             <div class="form-group">
-                <label for="">Tell us more</label>
+                <label for="">Ceritakan tentang kami</label>
                 <input type="text" class="form-control" v-model="formData.description"  placeholder="Input...">
             </div>
 
@@ -27,27 +27,27 @@
 </template>
 
 <script>
-    export default {
-        props:['product','url'],
-        data(){
-            return {
-                formData:{}
-            }
-        },
+export default {
+  props: ["product", "url"],
+  data() {
+    return {
+      formData: {}
+    };
+  },
 
-        methods:{
-          postReview(){
-              this.formData.product_id=this.product.id;
-              
-              axios.post(this.url,this.formData)
-                  .then(data=>{
-                      location.reload();
-                  })
-                  .catch(error=>{
-                      console.log(error);
-                  })
-          }
+  methods: {
+    postReview() {
+      this.formData.product_id = this.product.id;
 
-        },
+      axios
+        .post(this.url, this.formData)
+        .then(data => {
+          location.reload();
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
+  }
+};
 </script>

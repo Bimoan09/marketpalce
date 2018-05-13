@@ -28,6 +28,8 @@
 
                                    </div>
                             </div>
+                            </br>
+                            </br>
 
 
                             <div class=>
@@ -39,6 +41,9 @@
 
                                    </div>
                             </div>
+                            </br>
+                            </br>
+
 
                             <div class= >
                                 <label for="number" class="col-md-4 control-label">Nomer rekening</label>
