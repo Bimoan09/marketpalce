@@ -36,17 +36,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('orders/{type?}', 'OrderController@Orders');
 
 });
-Route::resource('address','AddressController');
+// Route::get('pembayaran','AddressController@payment');
 
 //Route::get('checkout','CheckoutController@step1');
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('shipping-info','CheckoutController@shipping')->name('checkout.shipping');
+    Route::get('shipping-info','CheckoutController@index');
+    Route::post('shipping-info','CheckoutController@store')->name('checkout.shipping');
+    Route::get('payment','AddressController@index')->name('front.payment');
+    Route::get('/email', function () {
+        return view('email');
+    });
+    Route::post('/sendEmail', 'Email@sendEmail');
+
     Route::resource('review','ProductReviewController');
 });
 
-
-Route::get('payment','CheckoutController@payment')->name('checkout.payment');
-Route::post('store-payment','CheckoutController@storePayment')->name('payment.store');
 
 
 Route::group(['prefix' => 'backend'], function () {

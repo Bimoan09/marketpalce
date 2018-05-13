@@ -43,7 +43,7 @@
                 </tbody>
             </table>
 
-          <a href="/shipping-info" class="btn btn-info" role="button">Checkout</a>
+         
 
         </div>
     </div>

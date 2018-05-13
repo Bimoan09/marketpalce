@@ -46,6 +46,11 @@
                         Dashborad
                     </a>
                 </li>
+                <li>
+                    <a href="shipping-info">
+                        Checkout
+                    </a>
+                </li>
             
                 <li>
                     <cart-count  :cartcount="totalItems"  > </cart-count>
@@ -82,7 +87,7 @@
         </div>
 
         <div class="small-6 medium-4 large-4 columns">
-            <h4>Follow Us</h4>
+            <h4>Follow me</h4>
             <ul class="footer-links">
                 <li><a href="https://github.com/Bimoan09">GitHub</a></li>
                 <li><a href="https://www.facebook.com/bimo.anugrah?ref=bookmarks">Facebook</a></li>
@@ -92,10 +97,6 @@
 </footer>
 
 <script src="{{asset('dist/js/vendor/jquery.js')}}"></script>
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">
-    Stripe.setPublishableKey('pk_test_GryUHqXe48kgNc75J2BovmeN');
-</script>
 <script src="{{asset('dist/js/app.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('dist/js/vendor/foundation.js')}}"></script>

@@ -15,6 +15,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+
+        //menampilkan semua kategori 
+        
         $categories=Category::all();
 
 
@@ -39,6 +42,8 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        //membuat kategori baru 
+
         Category::create($request->all());
         return back();
     }
@@ -51,6 +56,9 @@ class CategoriesController extends Controller
      */
     public function show($categoryId=null)
     {
+       
+        
+
         if(!empty($categoryId)){
             $products=Category::find($categoryId)->products;
         }
@@ -91,6 +99,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
+        //mencari kategori ID lalu menghapus Category
+
         $category=Category::find($id);
         $category->products()->delete();
         $category->delete();

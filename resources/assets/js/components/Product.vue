@@ -20,6 +20,10 @@
                 <h5>
                     $ {{ shirt.price }}
                     </h5>
+
+                <h5>
+                    $ {{ shirt.description }}
+                    </h5>
                 <p>
                     {{htmlToText(shirt.description)  }}
 
