@@ -36,6 +36,9 @@ Run watcher
 
 `npm run watch`
 
+
+**you must conect with internet, because disqus comentar plugin is must connect internet**
+
 on your file **.env** this is mail setting ,,
 
 * MAIL_DRIVER=smtp
