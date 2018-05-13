@@ -20,8 +20,6 @@ export default {
     return {};
   },
 
-  created() {
-    console.log("Component mounted.");
-  }
+  created() {}
 };
 </script>

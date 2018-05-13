@@ -15,7 +15,7 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
+        return view('front.payment');
     }
 
     /**
@@ -34,20 +34,19 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function payment(Request $request)
     {
-        $this->validate($request,[
+        $payment = $this->validate($request,[
             'addressline'=>'required',
             'city'=>'required',
             'state'=>'required',
             'zip'=>'required|integer',
             'phone'=>'required|integer',
         ]);
+        
 
-        Auth::user()->address()->create($request->all());
-
-        return redirect()->route('checkout.payment');
-    }
+        return view('front.pembayaran');
+}
 
     /**
      * Display the specified resource.

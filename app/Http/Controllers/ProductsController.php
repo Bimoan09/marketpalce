@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
-
 class ProductsController extends Controller
 {
     /**
@@ -18,7 +15,6 @@ class ProductsController extends Controller
         $products=Product::all();
         return view('admin.product.index',compact('products'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -26,10 +22,12 @@ class ProductsController extends Controller
      */
     public function create()
     {
+        //menggunakan query builder
+        //menemukan kategori id , setelah di temukan di redirect 
+        //ke admin.product.create
         $categories=Category::pluck('name','id');
         return view('admin.product.create',compact('categories'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,7 +37,6 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $formInput=$request->except('image');
-
 //        validation
         $this->validate($request,[
             'name'=>'required',
@@ -47,18 +44,17 @@ class ProductsController extends Controller
             'price'=>'required',
             'image'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
-//        image upload
+//        upload gambar, dimana ketika gamber di upload 
+//          maka gamber akan tersimpan ke folder images
         $image=$request->image;
         if($image){
             $imageName=$image->getClientOriginalName();
             $image->move('images',$imageName);
             $formInput['image']=$imageName;
         }
-
         Product::create($formInput);
         return redirect()->route('product.index');
     }
-
     /**
      * Display the specified resource.
      *
@@ -69,7 +65,6 @@ class ProductsController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -82,7 +77,6 @@ class ProductsController extends Controller
         $categories=Category::pluck('name','id');
         return view('admin.product.edit',compact(['product','categories']));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -94,7 +88,6 @@ class ProductsController extends Controller
     {
         $product=Product::find($id);
         $formInput=$request->except('image');
-
 //        validation
         $this->validate($request,[
             'name'=>'required',
@@ -102,7 +95,6 @@ class ProductsController extends Controller
             'price'=>'required',
             'image'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
-
         //        image upload
         $image=$request->image;
         if($image){
@@ -110,11 +102,9 @@ class ProductsController extends Controller
             $image->move('images',$imageName);
             $formInput['image']=$imageName;
         }
-
          $product->update($formInput);
         return redirect()->route('product.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -126,23 +116,18 @@ class ProductsController extends Controller
         Product::destroy($id);
         return back();
     }
-
     public function uploadImages($productId,Request $request)
     {
-
             
         $product=Product::find($productId);
-
         //        image upload
         $image=$request->file('file');
-
         if($image){
             $imageName=time(). $image->getClientOriginalName();
             $image->move('images',$imageName);
             $imagePath= "/images/$imageName";
             $product->images()->create(['image_path'=>$imagePath]);
         }
-
         return "done";
         // Product::create($formInput);
     }

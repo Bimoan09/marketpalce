@@ -14,7 +14,7 @@
         <h4>Category:{{count($product->category)?$product->category->name:"N/A"}}</h4>
         @foreach ($product->images as $image)
           
-          <img src="{{$image->image_path}}" style="max-width: 100px">
+          <img src="{{asset("images/$product->image")}}" style="max-width: 100px">
   
         @endforeach
       <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-sm ">Edit Product</a>

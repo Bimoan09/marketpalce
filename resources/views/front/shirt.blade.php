@@ -27,29 +27,16 @@
                         <p>
                             {!! $product->description !!}
                         </p>
+                        <h4>
+                            Size: {!! $product->size !!}
+                        </h4>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="large-12 columns">
-                        <label>
-                            Select Size
-                            <select>
-                                <option value="small">
-                                    Small
-                                </option>
-                                <option value="medium">
-                                    Medium
-                                </option>
-                                <option value="large">
-                                    Large
-                                </option>
-
-                            </select>
-                        </label>
+               
                         <a href="{{url('/cart')}}">
-            <button class="button large">Add to cart</button>
-        </a>
+                            <button class="button large">Tambah ke Keranjang</button>
+                        </a>
                     </div>
                 </div>
 
@@ -63,11 +50,11 @@
                 <br>
 
                 @if(auth()->check())
-                <a href="#" class="button" data-open="product-review-modal">Write a review</a>
+                <a href="#" class="button" data-open="product-review-modal">tulis review</a>
 
                @include('admin.product.partials.review_form')
                 @else
-                    <a href="/login" class="button" >Write a review</a>
+                    <a href="/login" class="button" >tulis review</a>
 
                 @endif
             </div>
