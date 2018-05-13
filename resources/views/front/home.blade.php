@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="hero text-center">
+    <section class=" hero text-center">
         <br/>
         <br/>
         <br/>

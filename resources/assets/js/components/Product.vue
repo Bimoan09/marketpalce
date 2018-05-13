@@ -18,16 +18,17 @@
                         </h3>
                 </a>
                 <h5>
-                    $ {{ shirt.price }}
+                    Rp. {{ shirt.price }}
+                    </h5>
+
+ <h5>
+                     {{ shirt.category }}
                     </h5>
 
                 <h5>
-                    $ {{ shirt.description }}
+                     {{ shirt.description }}
                     </h5>
-                <p>
-                    {{htmlToText(shirt.description)  }}
-
-                </p>
+               
             </div>
         </div>
     </div>
