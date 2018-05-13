@@ -28,7 +28,7 @@ And Migrate with
 
 `php artisan migrate`
 
-Install node dependencies
+Install node dependencies, recomend the minimal version NPM is v9.5.0
 
 `npm install`
 
@@ -36,6 +36,9 @@ Run watcher
 
 `npm run watch`
 
+run the laravel server
+
+	php artisan serve
 
 **you must conect with internet, because disqus comentar plugin is must connect internet**
 
