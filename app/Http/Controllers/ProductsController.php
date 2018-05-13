@@ -95,7 +95,7 @@ class ProductsController extends Controller
             'price'=>'required',
             'image'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
-        //        image upload
+        //        upload gambar
         $image=$request->image;
         if($image){
             $imageName=$image->getClientOriginalName();
@@ -120,7 +120,7 @@ class ProductsController extends Controller
     {
             
         $product=Product::find($productId);
-        //        image upload
+        //        upload gambar
         $image=$request->file('file');
         if($image){
             $imageName=time(). $image->getClientOriginalName();

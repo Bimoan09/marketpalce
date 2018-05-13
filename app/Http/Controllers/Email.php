@@ -7,6 +7,9 @@ use Mail;
 
 class Email extends Controller
 {
+
+    // fungsi untuk mengirim email ke customer
+    // dengan menggunakan mailtrap
     public function sendEmail(Request $request)
 {
     try{
