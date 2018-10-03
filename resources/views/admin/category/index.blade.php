@@ -18,7 +18,7 @@
 
                 </li>
             @empty
-                <li>No Items</li>
+                <li>No Categories</li>
             @endforelse
                 @endif
 
@@ -68,7 +68,7 @@
 @forelse($products as $product)
     <tr><td>{{$product->name}}</td></tr>
     	@empty
-        <tr><td>no data</td></tr>
+        <tr><td>No Products<td></tr>
         @endforelse
 
         </tbody>
