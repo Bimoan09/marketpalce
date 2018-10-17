@@ -2,46 +2,65 @@
 
 @section('content')
 
-    <h3>Products</h3>
-
-<ul class="container">
-    @forelse($products as $product)
-    <li class="row">
+<h3>Products</h3>
 
 
-       <div class="col-md-8">
-        <h4>Name of product:{{$product->name}}</h4>
-        <h4>Category:{{count($product->category)?$product->category->name:"N/A"}}</h4>
-        @foreach ($product->images as $image)
-          
-          <img src="{{asset("images/$product->image")}}" style="max-width: 100px">
-  
-        @endforeach
-      <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-sm ">Edit Product</a>
-      <br>
 
-        <form action="{{route('product.destroy',$product->id)}}"  method="POST">
-           {{csrf_field()}}
-           {{method_field('DELETE')}}
-           <input class="btn btn-sm btn-danger" type="submit" value="Delete">
-         </form>
+   <div class="row">
+                        <form action="{{ url()->current() }}">
+                            <div class="col-md-10">
+                                <input type="text" name="keyword" class="form-control" placeholder="Cari berdasarkan Nama Produk,ID dan Tanggal..." value="{{ request('keyword') }}">
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <button type="submit" class="btn btn-primary">
+                                    Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <br>
 
-         <div class="col-md-4">
-            
-            <form action="/admin/product/image-upload/{{$product->id}}" method="POST" class="dropzone" id="my-awesome-dropzone-{{$product->id}}">
-              {{csrf_field()}}
-
-             </form>
-
-        </div>
-
-    </li>
-
+<table class="table table-bordered table-responsive table-hover order-column">
+    <thead>
+    <tr>
+    
+        <th>Nama Product</th>
+        <th>Kategori</th>
+        <th>Size</th>
+        <th>Images</th>
+        <th>Aksi</th>
+        
+            </tr>
+        </thead>
+    <tbody>
+@if($product != NULL)
+      @foreach($products as $produk)
+                    <tr>
+                        
+                        <td>{{ $produk->name }}</td>
+                        <td>{{ $produk->category->name }}</td>
+                        <td>{{ $produk->size }}</td>
+                        <td>{{ $produk->images }}</td>
+                        <td>
+                              <form action="{{ action('ProductsController@destroy', $produk->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <a href="{{ url('kontak_edit',$produk->id) }}" class=" btn btn-sm btn-primary">Edit</a>
+                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @else
+        <h1>kosong</h1>
+{{-- 
         @empty
 
         <h3>No products</h3>
 
-    @endforelse
+    @endforelse --}}
 </ul>
 
 

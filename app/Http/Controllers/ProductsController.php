@@ -10,11 +10,22 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $request)
     {
-        $products=Product::all();
+        $products=Product::when($request->keyword, function($query) use ($request){
+            $query->where('name', 'like', "%{$request->keyword}%");
+        })->paginate(5);
         return view('admin.product.index',compact('products'));
     }
+
+    // $raws->when($request->has('category_id'), function ($query) use ($request) {
+    //     return $query->where('category_id', $request->category_id);
+    // });
+    // $product = Product::when($request->keyword, function ($query) use ($request) {
+    //     $query->where('namaproduct', 'like', "%{$request->keyword}%")
+    //         ->orWhere('id', 'like', "%{$request->keyword}%")
+    //         ->orWhere('tanggaldibuat', 'like', "%{$request->keyword}%");
+    // })->paginate(5);
     /**
      * Show the form for creating a new resource.
      *
@@ -36,7 +47,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $formInput=$request->except('image');
+        // $formInput=$request->except('image');
 //        validation
         $this->validate($request,[
             'name'=>'required',
@@ -52,7 +63,7 @@ class ProductsController extends Controller
             $image->move('images',$imageName);
             $formInput['image']=$imageName;
         }
-        Product::create($formInput);
+        Product::create();
         return redirect()->route('product.index');
     }
     /**
@@ -132,3 +143,10 @@ class ProductsController extends Controller
         // Product::create($formInput);
     }
 }
+
+
+
+
+
+
+

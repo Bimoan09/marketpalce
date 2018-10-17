@@ -13,10 +13,11 @@ class Email extends Controller
     public function sendEmail(Request $request)
 {
     try{
+
         Mail::send('email', ['nama' => $request->nama], function ($message) use ($request)
         {
             $message->subject($request->nama);
-            $message->from('cobaindong845@gmail.com', 'Bimo');
+            $message->from($request->mail);
             $message->to($request->email);
         });
         return back()->with('alert-success','Email Terkirim,, Kami segera memproses pembayaran anda');
